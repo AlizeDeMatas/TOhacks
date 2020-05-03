@@ -1,5 +1,6 @@
 from tkinter import *
-from tkinter import ttk
+
+inputTxt = ""
 
 class to_do:
 
@@ -42,8 +43,8 @@ class to_do:
 		#Output text
 		self.outputTxt = StringVar()
 		output = Label(window,
-					   	   textvariable = self.outputTxt,
-					   	   bg = "#D7EAF7")
+					   textvariable = self.outputTxt,
+					   bg = "#D7EAF7")
 		output.pack(padx = 5,
 					pady = 5)
 
@@ -53,7 +54,8 @@ class to_do:
 	#Button reaction event
 	#Display text entered
 	def clickHandle(self,event):
-		inputTxt = self.entryTxt.get() #Get input
+		global inputTxt 
+		inputTxt = inputTxt + "\n" + self.entryTxt.get() #Get input
 		outTxt = self.outputTxt.set(format(inputTxt))
 		return outTxt
 
