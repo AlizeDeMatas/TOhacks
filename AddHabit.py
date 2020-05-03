@@ -6,13 +6,24 @@ from tkinter import ttk #used for text and other options
 
 #Boiler plate
 class Root(Tk):
+
   def __init__(self):
     super(Root, self).__init__()
+
+    self.root = Tk();
+    self.root.title("Stay Focused")
+    self.root.configure(background="#D7EAF7")
+    self.root.geometry("400x600")
+    theLabel = Label(self.root, text="Add new habit", background= "#D7EAF7", font="System 40 bold italic")
+    theLabel.pack()
+
     #self.title("New habit") #Name yours accordingly
     #self.minsize(600, 400)  #Like that it doesn't need to be expanded
     #You'll need this to show options
     self.initUI()
     self.spinBox()
+
+    self.root.mainloop()
 
   def initUI(self):
     self.name = StringVar() #Collects input
@@ -39,10 +50,4 @@ class Root(Tk):
   def done(self):
     self.root.destroy()
 
-root = Tk()
-root.title("Stay Focused")
-root.configure(background="#D7EAF7")
-root.geometry("400x600")
-theLabel = Label(root, text="Add new habit", background= "#D7EAF7", font="System 40 bold italic")
-theLabel.pack()
-root.mainloop()
+Root()
